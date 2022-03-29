@@ -4,7 +4,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = var.state-bucket
+    bucket = "state-file-bucket-24"
 
   }
 }
