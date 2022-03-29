@@ -58,4 +58,7 @@ variable "databases" {
   default       = []
 }
 
+variable "state-bucket" {
+  description	= "state bucket name"
+  type		= string
 

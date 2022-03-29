@@ -1,3 +1,4 @@
+state-bucket		="state-file-bucket-24"
 instance_name		= "spanner-test-instance"
 project			= "clean-beaker-343108"
 config				= "regional-europe-west1"

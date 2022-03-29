@@ -2,6 +2,13 @@ provider "google" {
 
 }
 
+terraform {
+  backend "gcs" {
+    bucket = var.state-bucket
+
+  }
+}
+
 module spanner {
   source = "./regional_deployment/spanner"
   instance_name			= var.instance_name
