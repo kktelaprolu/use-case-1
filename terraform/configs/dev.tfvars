@@ -1,4 +1,5 @@
 instance_name		= "spanner-test-instance"
+project			= "My Project 90578"
 config				= "regional-europe-west1"
 display_name		= "tf-spanner-test-instance"
 databases	= [
