@@ -1,5 +1,5 @@
 instance_name		= "spanner-test-instance"
-project			= "civil-keyword-345118"
+project			= "clean-beaker-343108"
 config				= "regional-europe-west1"
 display_name		= "tf-spanner-test-instance"
 num_nodes		= 1
