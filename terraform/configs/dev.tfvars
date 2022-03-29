@@ -9,5 +9,8 @@ databases	= [
       ddl = [
         "CREATE TABLE t1 (t1 INT64 NOT NULL,) PRIMARY KEY(t1)"
         ]
-    }
+    },
+    { 
+      name = "database-test-2",
+    },
   ]
