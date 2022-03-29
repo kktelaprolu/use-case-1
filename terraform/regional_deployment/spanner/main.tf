@@ -29,11 +29,11 @@ resource "google_spanner_database" "spanner_database" {
   
   dynamic encryption_config {
       
-	  for_each = (lookup(each.value, "kms_key_name", null) != "") ? [each.value.kms_key_name] : []
+	  for_each = (lookup(each.value, "kms_key_name", "") != "") ? [each.value.kms_key_name] : []
 	  
 	  content {
 	  
-      kms_key_name = lookup(each.value, "kms_key_name", null)
+                      kms_key_name = lookup(each.value, "kms_key_name", null)
 	          }
 	  
                            }

@@ -45,7 +45,7 @@ variable "force_destroy" {
 
 
 variable "labels" {
-  description	= "An object containing a list of "key": value pairs."
+  description	= "An object containing a list of key: value pairs."
   type			= map(string)
   default		= {}
 }
