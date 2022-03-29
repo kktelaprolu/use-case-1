@@ -12,5 +12,8 @@ databases	= [
     },
     { 
       name = "database-test-2",
+      ddl = [
+        "CREATE TABLE t2 (t2 INT64 NOT NULL,) PRIMARY KEY(t2)"
+        ]
     },
   ]
