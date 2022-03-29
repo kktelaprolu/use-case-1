@@ -61,4 +61,5 @@ variable "databases" {
 variable "state-bucket" {
   description	= "state bucket name"
   type		= string
+}
 
