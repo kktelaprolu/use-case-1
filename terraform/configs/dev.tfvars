@@ -17,5 +17,10 @@ databases	= [
         "CREATE TABLE t2 (t2 INT64 NOT NULL,) PRIMARY KEY(t2)"
         ]
      kms_key_name = ""
-    }
+    },
+    { 
+      name = "database-test-3",
+      ddl = []
+      kms_key_name = ""
+    },
   ]
