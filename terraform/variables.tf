@@ -19,7 +19,7 @@ variable "display_name" {
 variable "num_nodes" {
   description	= "The number of nodes allocated to this instance"
   type			= string
-  default		= null
+  default		= ""
 }
 
 
@@ -27,7 +27,7 @@ variable "num_nodes" {
 variable "processing_units" {
   description	= "The number of processing units allocated to this instance."
   type			= string
-  default		= null
+  default		= ""
 }
 
 
@@ -54,12 +54,13 @@ variable "labels" {
 
 variable "databases" {
   description	= " A unique identifier for the database,which cannot be changed after the instance is created. Values are of the form [a-z][-a-z0-9]*[a-z0-9]."
-  type			= list(any)
-  default       = []
+  type			= list(object({
+      name = string,
+      ddl = list(string),
+      kms_key_name = string
+    }
+   )
+  )
 }
 
-#variable "state-bucket" {
-#  description	= "state bucket name"
-#  type		= string
-#}
 

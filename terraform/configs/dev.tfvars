@@ -15,5 +15,5 @@ databases	= [
       ddl = [
         "CREATE TABLE t2 (t2 INT64 NOT NULL,) PRIMARY KEY(t2)"
         ]
-    },
+    }
   ]
