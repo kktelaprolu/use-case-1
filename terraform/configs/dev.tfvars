@@ -18,9 +18,4 @@ databases	= [
         ]
      kms_key_name = ""
     },
-    { 
-      name = "database-test-3",
-      ddl = []
-      kms_key_name = ""
-    },
   ]
