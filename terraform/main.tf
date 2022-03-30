@@ -38,7 +38,7 @@ module spanner {
 
 module spanner2 {
   source = "./regional_deployment/spanner"
-  name				= "spanner-test-instance-2"
+  instance_name				= "spanner-test-instance-2"
   config			= "regional-europe-west1"
   display_name			= "tf-spanner-test-instance-2"
   num_nodes			= 1
