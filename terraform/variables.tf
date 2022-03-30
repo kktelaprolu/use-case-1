@@ -18,16 +18,16 @@ variable "display_name" {
 
 variable "num_nodes" {
   description	= "The number of nodes allocated to this instance"
-  type			= string
-  default		= ""
+  type			= number
+  default		= null
 }
 
 
 
 variable "processing_units" {
   description	= "The number of processing units allocated to this instance."
-  type			= string
-  default		= ""
+  type			= number
+  default		= null
 }
 
 
