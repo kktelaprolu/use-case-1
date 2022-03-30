@@ -9,27 +9,55 @@ terraform {
   }
 }
 
-/*
+
 module spanner {
   source = "./regional_deployment/spanner"
-  instance_name			= var.instance_name
-  config			= var.config
-  display_name			= var.display_name
-  num_nodes			= var.num_nodes
-  labels			= var.labels
+  instance_name			= "spanner-test-instance"
+  config			= "regional-europe-west1"
+  display_name			= "tf-spanner-test-instance"
+  num_nodes			= 1
   project			= var.project
-  force_destroy			= var.force_destroy
-  databases			= var.databases  
+  force_destroy			= true
+  databases			= [
+    { 
+      name = "database-test-1",
+      ddl = [
+        "CREATE TABLE t1 (t1 INT64 NOT NULL,) PRIMARY KEY(t1)"
+        ]
+     kms_key_name = ""
+    },
+    { 
+      name = "database-test-2",
+      ddl = [
+        "CREATE TABLE t2 (t2 INT64 NOT NULL,) PRIMARY KEY(t2)"
+        ]
+     kms_key_name = ""
+    },
+  ]
 }
 
 module spanner {
   source = "../"
-  name				= var.instance_name
-  config			= var.config
-  display_name		= var.display_name
-  num_nodes			= var.num_nodes
-  labels			= var.labels
+  name				= "spanner-test-instance-2"
+  config			= "regional-europe-west1"
+  display_name			= "tf-spanner-test-instance-2"
+  num_nodes			= 1
   project			= var.project
-  force_destroy		= var.force_destroy
+  force_destroy			= true
+  databases	= [
+    { 
+      name = "database-test-1",
+      ddl = [
+        "CREATE TABLE t1 (t1 INT64 NOT NULL,) PRIMARY KEY(t1)"
+        ]
+      kms_key_name = ""
+    },
+    { 
+      name = "database-test-2",
+      ddl = []
+      kms_key_name = ""
+    },
+  ]
 }
-*/
+}
+
