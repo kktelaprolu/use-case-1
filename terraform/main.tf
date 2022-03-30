@@ -36,7 +36,7 @@ module spanner {
   ]
 }
 
-module spanner {
+module spanner2 {
   source = "../"
   name				= "spanner-test-instance-2"
   config			= "regional-europe-west1"
@@ -59,5 +59,5 @@ module spanner {
     },
   ]
 }
-}
+
 
