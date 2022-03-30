@@ -9,6 +9,7 @@ terraform {
   }
 }
 
+/*
 module spanner {
   source = "./regional_deployment/spanner"
   instance_name			= var.instance_name
@@ -31,3 +32,4 @@ module spanner {
   project			= var.project
   force_destroy		= var.force_destroy
 }
+*/
