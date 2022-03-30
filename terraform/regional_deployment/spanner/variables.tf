@@ -61,6 +61,7 @@ variable "databases" {
     }
    )
   )
+ default	= []
 }
 
 

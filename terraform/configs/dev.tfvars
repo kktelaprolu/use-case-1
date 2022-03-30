@@ -9,11 +9,13 @@ databases	= [
       ddl = [
         "CREATE TABLE t1 (t1 INT64 NOT NULL,) PRIMARY KEY(t1)"
         ]
+     kms_key_name = ""
     },
     { 
       name = "database-test-2",
       ddl = [
         "CREATE TABLE t2 (t2 INT64 NOT NULL,) PRIMARY KEY(t2)"
         ]
+     kms_key_name = ""
     }
   ]
