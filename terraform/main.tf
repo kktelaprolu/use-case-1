@@ -37,7 +37,7 @@ module spanner {
 }
 
 module spanner2 {
-  source = "../"
+  source = "./regional_deployment/spanner"
   name				= "spanner-test-instance-2"
   config			= "regional-europe-west1"
   display_name			= "tf-spanner-test-instance-2"
