@@ -72,6 +72,6 @@ module spanner-database {
 
 
 data "external" "ddl" {
-  program = ["sh", "cat scripts/ddl-file.txt"]
+  program = ["sh", "cat ./scripts/ddl-file.txt"]
  }
 
