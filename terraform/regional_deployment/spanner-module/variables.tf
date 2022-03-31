@@ -32,6 +32,6 @@ variable "ddl" {
 variable "kms_key_name" {
   description = ""
   type = string
-  deault = ""
+  default = ""
 
 }
