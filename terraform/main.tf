@@ -61,7 +61,7 @@ module spanner2 {
 }
 module spanner-database {
   source = "./regional_deployment/spanner-module"
-  instance-name  = module.spanner2.instance_id.value
+  instance-name  = module.spanner2.instance_id
   project = var.project
   database = "db1"
   ddl = data.external.ddl.result

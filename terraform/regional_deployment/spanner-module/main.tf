@@ -5,7 +5,7 @@ resource "google_spanner_database" "spanner_database" {
   deletion_protection = var.deletion_protection
   ddl = var.ddl
  
-  dynamic encryption_config {
+  encryption_config {
       
 	  
 	  content {
