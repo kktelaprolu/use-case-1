@@ -98,9 +98,6 @@ module cloudrun3 {
  location = "asia-northeast3"
  project = var.project
  env = [{key = "database", 
-         value = "db1"},
-         {secret = "secret", 
-         version = "latest"}]
-
+         value = "db1"},}]
 }
   
