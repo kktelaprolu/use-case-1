@@ -45,6 +45,7 @@ variable "port" {
   description = "Port number the container listens on. This must be a valid port number, 0 < x < 65536."
   type = number
   default = 8080
+}
 
 
 variable "cpus" {
