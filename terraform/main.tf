@@ -91,19 +91,15 @@ module cloudrun {
 */
 
 
-module cloudrun {
+module cloudrun2 {
  source = "./regional_deployment/cloudrun"
- name = "cloudrun"
+ name = "cloudrun2"
  image = "gcr.io/clean-beaker-343108/cats"
  location = "asia-northeast3"
  project = var.project
  env = [{key = "database", 
-         value = "db1",
-         secret = "",
-         version = ""},{
-         key = "",
-         value = "",
-         secret = "secret", 
+         value = "db1"},
+         {secret = "secret", 
          version = "latest"}]
 
 }
