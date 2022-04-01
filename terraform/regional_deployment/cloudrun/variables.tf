@@ -86,8 +86,8 @@ variable "env" {
     object({
       key = string,
       value = string,
-      secret = optional(string),
-      version = optional(string),
+      secret = string,
+      version = string,
     })
   )
 }

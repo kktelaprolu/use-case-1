@@ -5,7 +5,7 @@ locals {
       value = e.value
       secret = {
         name = e.secret
-        version = coalesce(e.version, "latest")
+        version = e.version
       }
     }
   ])
