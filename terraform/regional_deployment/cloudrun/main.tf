@@ -42,6 +42,19 @@ resource "google_cloud_run_service" "cloudrun" {
             value = env.value.value
           }
         }
+       dynamic env {
+          for_each = [for e in local.env: e if e.secret.name != null]
+
+          content {
+            name = env.value.key
+            value_from {
+              secret_key_ref {
+                name = env.value.secret.name
+                key = env.value.secret.version
+              }
+            }
+          }
+        }
        }
     }
     metadata {
