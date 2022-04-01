@@ -51,7 +51,6 @@ resource "google_cloud_run_service" "cloudrun" {
         "autoscaling.knative.dev/maxScale"      = "5"
         "run.googleapis.com/client-name"        = "terraform"
         "client.knative.dev/user-image" 	= var.image
-        "run.googleapis.com/secrets" 		= "projects/866652924590/secrets/secret"
       }
     }
   }  
