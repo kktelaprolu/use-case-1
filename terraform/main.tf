@@ -91,9 +91,9 @@ module cloudrun {
 */
 
 
-module cloudrun2 {
+module cloudrun3 {
  source = "./regional_deployment/cloudrun"
- name = "cloudrun2"
+ name = "cloudrun3"
  image = "gcr.io/clean-beaker-343108/cats"
  location = "asia-northeast3"
  project = var.project
