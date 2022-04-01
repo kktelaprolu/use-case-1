@@ -85,9 +85,9 @@ variable "env" {
   type = set(
     object({
       key = string,
-      value = optional(string),
-      secret = optional(string),
-      version = optional(string)
+      value = string,
+      secret = string,
+      version = string
     })
   )
   default = []
