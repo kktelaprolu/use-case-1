@@ -83,6 +83,5 @@ module cloudrun {
   name = "cloudrun-test"
   image = "gcr.io/clean-beaker-343108/cats"
   location = "asia-northeast3"
-  project = "866652924590"
 }
   
