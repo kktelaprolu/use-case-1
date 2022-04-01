@@ -61,20 +61,20 @@ variable "memory" {
   default = 256
 }
 
-variable labels {
+variable "labels" {
   type = map(string)
   default = {}
   description = "Labels to apply to the service."
 }
 
-variable project {
+variable "project" {
   type = string
   default = null
   description = "Project id in which to create resources."
 }
 
 
-variable revision {
+variable "revision" {
   type = string
   default = null
   description = "Revision name to use. When `null`, revision names are automatically generated."
