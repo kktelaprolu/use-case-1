@@ -2,6 +2,7 @@ resource "google_cloud_run_service" "cloudrun" {
   name     = var.name
   location = var.location
   autogenerate_revision_name = true
+  project = var.project
 
   template {
     spec {
