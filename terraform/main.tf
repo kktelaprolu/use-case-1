@@ -99,6 +99,10 @@ module cloudrun3 {
  project = var.project
  env = [{key = "database", 
          value = "db1",
+         secret = "",
+         version = ""},
+        { key = "",
+         value = ""
          secret = "secret",
          version = "latest"}]
 }
