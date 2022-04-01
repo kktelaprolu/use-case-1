@@ -101,7 +101,7 @@ module cloudrun3 {
          value = "db1",
          secret = "",
          version = ""},
-        { key = "",
+        { key = "test",
          value = ""
          secret = "secret",
          version = "latest"}]
