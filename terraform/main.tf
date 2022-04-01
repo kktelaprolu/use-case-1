@@ -79,7 +79,7 @@ module spanner2 {
 
 
 
-
+/*
 module cloudrun {
   source = "./regional_deployment/cloudrun"
   name = "cloudrun-test"
@@ -88,16 +88,16 @@ module cloudrun {
   project = var.project
   env = [{key = "secret", value = "db1", secret = "secret", version = "latest"}]
 }
+*/
 
 
-/*
 module cloudrun-1 {
  source = "./regional_deployment/cloudrun"
  name = "cloudrun"
  image = "gcr.io/clean-beaker-343108/cats"
  location = "asia-northeast3"
  project = var.project
- env = [{key = "secret", value = "db1"}]
+ env = [{key = "secret", value = "db1", secret = "secret", version = "latest"}]
 
 }
-*/  
+  
