@@ -97,7 +97,10 @@ module cloudrun-1 {
  image = "gcr.io/clean-beaker-343108/cats"
  location = "asia-northeast3"
  project = var.project
- env = [{key = "secret", value = "db1", secret = "secret", version = "latest"}]
+ env = [{key = "secret", 
+         value = "db1",
+         secret = "secret", 
+         version = "latest"}]
 
 }
   
