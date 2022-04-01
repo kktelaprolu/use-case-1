@@ -59,19 +59,30 @@ module spanner2 {
     },
   ]
 }
-module spanner-database {
-  source = "./regional_deployment/spanner-module"
-  instance-name  = module.spanner2.instance_id
-  project = var.project
-  database = "db1"
-  ddl = data.external.ddl.result
-  kms_key_name = ""
-  deletion_protection = false
- 
+#module spanner-database {
+#  source = "./regional_deployment/spanner-module"
+#  instance-name  = module.spanner2.instance_id
+#  project = var.project
+#  database = "db1"
+#  ddl = data.external.ddl.result
+#  kms_key_name = ""
+#  deletion_protection = false
+# 
+#}
+
+
+#data "external" "ddl" {
+#  program = ["cat", "scripts/ddl-file.txt"]
+# }
+
+
+
+
+module cloudrun {
+  source = "./regional_deployment/cloudrun"
+  name = "cloudrun-test"
+  image = "gcr.io/clean-beaker-343108/cats"
+  location = "asia-northeast3"
+
 }
-
-
-data "external" "ddl" {
-  program = ["cat", "scripts/ddl-file.txt"]
- }
-
+  
