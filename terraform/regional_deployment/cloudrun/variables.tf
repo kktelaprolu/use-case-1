@@ -81,4 +81,13 @@ variable "revision" {
 }
 
 
-
+variable "env" {
+  type = set(
+    object({
+      key = string,
+      value = string,
+#      secret = optional(string),
+#      version = optional(string),
+    })
+  )
+}

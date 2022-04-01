@@ -1,3 +1,17 @@
+locals {
+  env = toset([
+    for e in var.env: {
+      key = e.key
+      value = e.value
+#      secret = {
+#        name = e.secret
+#        alias = e.secret != null ? lookup(local.secrets_to_aliases, e.secret, null) : null
+#        version = coalesce(e.version, "latest")
+#      }
+    }
+  ])
+}
+
 resource "google_cloud_run_service" "cloudrun" {
   name     = var.name
   location = var.location
@@ -15,13 +29,21 @@ resource "google_cloud_run_service" "cloudrun" {
           name = var.http2 ? "h2c" : "http1"
           container_port = var.port
         }
-		resources {
+	resources {
           limits = {
             cpu = "${var.cpus * 1000}m"
             memory = "${var.memory}Mi"
           }
         }
-      }
+	dynamic env {
+          for_each = [for e in local.env: e if e.value != null]
+
+          content {
+            name = env.value.key
+            value = env.value.value
+          }
+        }
+       }
     }
     metadata {
 	  labels = var.labels
