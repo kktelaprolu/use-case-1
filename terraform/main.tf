@@ -60,7 +60,7 @@ module spanner2 {
   ]
 }
 
-/*
+
 #module spanner-database {
 #  source = "./regional_deployment/spanner-module"
 #  instance-name  = module.spanner2.instance_id
@@ -86,10 +86,11 @@ module cloudrun {
   image = "gcr.io/clean-beaker-343108/cats"
   location = "asia-northeast3"
   project = var.project
+  env = [{key = "secret", value = "db1", secret = "secret"}]
 }
-*/
 
 
+/*
 module cloudrun-1 {
  source = "./regional_deployment/cloudrun"
  name = "cloudrun"
@@ -99,4 +100,4 @@ module cloudrun-1 {
  env = [{key = "secret", value = "db1"}]
 
 }
-  
+*/  
