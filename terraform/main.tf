@@ -102,7 +102,7 @@ module cloudrun3 {
          secret = "",
          version = "",key = "key"
          value = ""
-         secret = secret,
+         secret = "secret",
          version = "latest"}]
 }
   
