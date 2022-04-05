@@ -82,7 +82,7 @@ variable "revision" {
 
 
 variable "env" {
-  type = list(
+  type = set(
     object({
       key = string,
       value = string,
