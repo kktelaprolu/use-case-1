@@ -100,8 +100,7 @@ module cloudrun3 {
  env = [{key = "database", 
          value = "db1",
          secret = "",
-         version = ""}]
- env = [{key = "".
+         version = "",key = "key"
          value = ""
          secret = secret,
          version = "latest"}]
