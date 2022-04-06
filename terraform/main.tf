@@ -95,7 +95,7 @@ module cloudrun {
 #  binary-auth = "default"
   env = [{name = "environment", value = "dev"}] 
   env_secret = [{name = "envir", secret = "secret", version = "latest"}]
-  maxscle = 3
+  maxscale = 3
   minscale = 1
   
 
