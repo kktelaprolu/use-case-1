@@ -13,6 +13,7 @@ variable "location"  {
 variable "image"  {
   description = "The image to be deployed on cloud run instance."
   type        = string
+  default     = ""
 }
 
 variable "container_concurrency"  {
@@ -80,7 +81,7 @@ variable "revision" {
   description = "Revision name to use. When `null`, revision names are automatically generated."
 }
 
-
+/*
 variable "env" {
   type = set(
     object({
@@ -91,14 +92,48 @@ variable "env" {
     })
   )
   default = []
-/*
-  validation {
-    error_message = "Environment variables must have one of `value` or `secret` defined."
-    condition = alltrue([
-      length([for e in var.env: e if (e.value == null && e.secret == null)]) < 1,
-      length([for e in var.env: e if (e.value != null && e.secret != null)]) < 1,
-    ])
-  }
+}
 */
+
+
+variable "ingress" {
+  type = string
+  default = "internal"
+  description = "Ingress settings for the service. Allowed values: [`\"all\"`, `\"internal\"`, `\"internal-and-cloud-load-balancing\"`]"
 }
 
+variable "binary-auth" {
+  type = string
+  default = "default"
+}
+
+variable vpc_connector_name {
+  type = string
+  default = null
+  description = "VPC connector to apply to this service."
+}
+
+variable vpc_access_egress {
+  type = string
+  default = null
+  description = "Specify whether to divert all outbound traffic through the VPC, or private ranges only."
+}
+
+variable "env" {
+  type = set(object({
+      name = string,
+      value = string
+    }
+   )
+  )
+}
+
+variable "env_secret" {
+  type = set(object({
+      name = string,
+      secret = string,
+      version = string
+    }
+   )
+  )
+}

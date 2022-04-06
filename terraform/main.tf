@@ -2,14 +2,7 @@ provider "google" {
 
 }
 
-terraform {
-  backend "gcs" {
-    bucket = "state-file-bucket-24"
-
-  }
-}
-
-
+/*
 module spanner {
   source = "./regional_deployment/spanner"
   instance_name			= "spanner-test-instance"
@@ -60,7 +53,7 @@ module spanner2 {
   ]
 }
 
-
+*/
 #module spanner-database {
 #  source = "./regional_deployment/spanner-module"
 #  instance-name  = module.spanner2.instance_id
@@ -90,16 +83,18 @@ module cloudrun {
 }
 */
 
-
-module cloudrun3 {
- source = "./regional_deployment/cloudrun"
- name = "cloudrun3"
- image = "gcr.io/clean-beaker-343108/cats"
- location = "asia-northeast3"
- project = var.project
- env = [{key = "key"
-         value = ""
-         secret = "secret",
-         version = "latest"}]
-}
+module cloudrun {
+  source = "./regional_deployment/cloudrun"
+  name = "cloudrun-test"
+  image = "gcr.io/clean-beaker-343108/cats"
+  location = "asia-northeast3"
+  project = var.project
+  ingress =  "internal-and-cloud-load-balancing"
+# binary-auth = "projects//platforms/cloudRun/policies/ENABLE"
+#  vpc_connector_name = "cdps-vpc-connector-ae2-kr"
+#  binary-auth = "default"
+  env = [{name = "environment", value = "dev"}] 
+  env_secret = [{name = "envir", secret = "secret", version = "latest"}]
   
+
+}
