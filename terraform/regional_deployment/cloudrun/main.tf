@@ -57,7 +57,9 @@ resource "google_cloud_run_service" "cloudrun" {
 	  service_account_name = var.service_account_name
       containers {
         image = var.image
-		ports {
+        command = var.entrypoint
+        args = var.args
+        ports {
           name = var.http2 ? "h2c" : "http1"
           container_port = var.port
         }
@@ -100,6 +102,7 @@ resource "google_cloud_run_service" "cloudrun" {
         "autoscaling.knative.dev/minScale"	= var.minscale
         "run.googleapis.com/vpc-access-connector" = var.vpc_connector_name
         "run.googleapis.com/vpc-access-egress" = var.vpc_access_egress
+        "run.googleapis.com/execution-environment" = var.execution_environment
       }
   }
   

@@ -137,3 +137,26 @@ variable "minscale" {
   type = number
   default = 1
 }
+
+
+variable "execution_environment" {
+  type = string
+  default = "gen1"
+  description = "Execution environment to run container instances under."
+}
+
+variable "entrypoint" {
+  type = list(string)
+  default = []
+  description = "Entrypoint command. Defaults to the image's ENTRYPOINT if not provided."
+}
+
+
+variable "args" {
+  type = list(string)
+  default = []
+  description = "Arguments to pass to the entrypoint."
+}
+
+
+
