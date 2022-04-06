@@ -93,34 +93,11 @@ resource "google_cloud_run_service" "cloudrun" {
        }
      }
   
- /*
-       dynamic env {
-          for_each = [for e in var.env: e.name => e]
-          
-          content {
-            name = each.value.name
-            value = each.value.value
-          }
-        }
-       dynamic env {
-          for_each = [for e in var.env_secret: e.name => e]
-          content {
-            name = each.value.name
-            value_from {
-              secret_key_ref {
-                name = each.value.secret
-                key = each.value.version
-              }
-            }
-          }
-        }
-       }
-   }
-*/
    metadata {
       labels = var.labels
      annotations = {
-        "autoscaling.knative.dev/maxScale"      = "5"
+        "autoscaling.knative.dev/maxScale"      = var.maxscale
+        "autoscaling.knative.dev/minScale"	= var.minscale
         "run.googleapis.com/vpc-access-connector" = var.vpc_connector_name
         "run.googleapis.com/vpc-access-egress" = var.vpc_access_egress
       }
@@ -134,3 +111,5 @@ resource "google_cloud_run_service" "cloudrun" {
     revision_name = var.revision != null ? "${var.name}-${var.revision}" : null
   }
 }
+
+

@@ -81,19 +81,6 @@ variable "revision" {
   description = "Revision name to use. When `null`, revision names are automatically generated."
 }
 
-/*
-variable "env" {
-  type = set(
-    object({
-      key = string,
-      value = string,
-      secret = string,
-      version = string
-    })
-  )
-  default = []
-}
-*/
 
 
 variable "ingress" {
@@ -126,6 +113,7 @@ variable "env" {
     }
    )
   )
+ default = []
 }
 
 variable "env_secret" {
@@ -136,4 +124,16 @@ variable "env_secret" {
     }
    )
   )
+ default = []
+}
+
+variable "maxscale" {
+  type = number
+  default = 3
+
+}
+
+variable "minscale" {
+  type = number
+  default = 1
 }

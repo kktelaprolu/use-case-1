@@ -89,12 +89,14 @@ module cloudrun {
   image = "gcr.io/clean-beaker-343108/cats"
   location = "asia-northeast3"
   project = var.project
-  ingress =  "internal-and-cloud-load-balancing"
+  ingress =  "internal"
 # binary-auth = "projects//platforms/cloudRun/policies/ENABLE"
 #  vpc_connector_name = "cdps-vpc-connector-ae2-kr"
 #  binary-auth = "default"
   env = [{name = "environment", value = "dev"}] 
   env_secret = [{name = "envir", secret = "secret", version = "latest"}]
+  maxscle = 3
+  minscale = 1
   
 
 }
