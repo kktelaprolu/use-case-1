@@ -53,7 +53,7 @@ module spanner2 {
   ]
 }
 
-*/
+
 #module spanner-database {
 #  source = "./regional_deployment/spanner-module"
 #  instance-name  = module.spanner2.instance_id
@@ -72,7 +72,7 @@ module spanner2 {
 
 
 
-/*
+
 module cloudrun {
   source = "./regional_deployment/cloudrun"
   name = "cloudrun-test"
@@ -81,6 +81,7 @@ module cloudrun {
   project = var.project
   env = [{key = "secret", value = "db1", secret = "secret", version = "latest"}]
 }
+
 */
 
 module cloudrun {
@@ -90,7 +91,7 @@ module cloudrun {
   location = "asia-northeast3"
   project = var.project
   ingress =  "internal"
-# binary-auth = "projects//platforms/cloudRun/policies/ENABLE"
+#binary-auth = "projects//platforms/cloudRun/policies/ENABLE"
 #  vpc_connector_name = "cdps-vpc-connector-ae2-kr"
 #  binary-auth = "default"
   env = [{name = "environment", value = "dev"}] 
@@ -100,3 +101,20 @@ module cloudrun {
   
 
 }
+resource "google_compute_region_network_endpoint_group" "cloudrun_neg" {
+  name                  = "cloudrun-neg"
+  network_endpoint_type = "SERVERLESS"
+  region                = "us-central1"
+  cloud_run {
+    service = "${module.cloudrun.name}"
+  }
+}
+
+
+resource "google_compute_forwarding_rule" "default" {
+#  provider              = google-beta
+  name                  = "glb-test"
+  region                = "us-central1"
+  backend_service       = google_compute_region_network_endpoint_group.cloudrun_neg.id
+}
+
